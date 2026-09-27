@@ -247,7 +247,7 @@ function brokerOffer(){
   const amt=Math.round((500+state.played*125)/50)*50;
   $('offerTeam').textContent='TEAM '+(state.turn+1);
   $('offerAmount').textContent=amt.toLocaleString()+' BONUS POINTS';
-  $('takeOffer').onclick=()=>{state.scores[state.turn]+=amt;sync();showBoard()};
+  $('takeOffer').onclick=()=>{state.scores[state.turn]+=amt;state.turn=1-state.turn;state.nextTeam=state.turn;sync();showBoard()};
   $('rejectOffer').onclick=showBoard;
 }
 function finish(){
